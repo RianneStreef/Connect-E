@@ -1,0 +1,30 @@
+<div class="card loginCard">
+  <h2>Log In</h2>
+  <form class="login-form" id="login-form">
+    <div class="card formCard" id="form-container">
+      <div class="form__group">
+        <label class="form__label" for="email">Email:</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          class="form__input"
+          required
+        />
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="password">Password: </label>
+        <input
+          id="password"
+          name="password"
+          type="text"
+          class="form__input"
+          required
+        />
+      </div>
+      <div class="button-container">
+        <app-button buttonText="Log in" buttonStyle="primary"></app-button>
+      </div>
+    </div>
+  </form>
+</div>
