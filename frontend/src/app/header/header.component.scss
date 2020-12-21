@@ -12,6 +12,24 @@
   --breakpoint-xl: 1200px;
 }
 
+.logoLink {
+  height: 80px;
+  width: 80px;
+  margin-top: auto;
+}
+
+.logoLinkImage {
+  background-image: url("../../assets/img/icon-black.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: background-image 400ms ease-in;
+
+  &:hover {
+    background-image: url("../../assets/img/icon-red.png");
+    transition: background-image 400ms ease-in;
+  }
+}
+
 .header {
   height: 80px;
   background-color: #ffffff;
