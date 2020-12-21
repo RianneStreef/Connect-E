@@ -1,9 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
-$highlight-color: #ff0707;
+:root {
+  --color-primary: #ffffff;
+  --color-secondary: #c4c4c4;
+  --color-tertiary: #575555;
+  --color-highlight: #ff0707;
+  --color-text-dark: #000000;
+  --color-text-light: #ffffff;
+}
 
 body {
   margin: 0;
-  background-color: #e5e5e5;
+  background-color: var(--color-secondary);
   font-family: Montserrat;
   height: 100vh;
   width: 100vw;
@@ -37,4 +43,21 @@ p {
   background-color: #ffffff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 10px;
+}
+
+.form__group {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 30px;
+  label {
+    margin-right: 10px;
+  }
+  input {
+    width: 50%;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
 }

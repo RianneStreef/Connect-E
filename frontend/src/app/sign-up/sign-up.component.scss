@@ -1,0 +1,18 @@
+.form__group {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 30px;
+  label {
+    margin-right: 10px;
+  }
+  input {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .sign-up-card {
+    display: flex;
+    flex-direction: row;
+  }
+}

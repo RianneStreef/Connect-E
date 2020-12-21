@@ -1,1 +1,37 @@
-<p>article works!</p>
+<form class="card login-card">
+  <h2>Add an article</h2>
+  <div class="articleForm">
+    <div class="articleInfo">
+      <div class="form__group">
+        <label class="form__label" for="email">Title:</label>
+        <input
+          id="title"
+          name="title"
+          type="text"
+          class="form__input"
+          required
+        />
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="password">Description:</label>
+        <input
+          id="description"
+          name="description"
+          type="text"
+          class="form__input"
+          required
+        />
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="password">URL:</label>
+        <input id="url" name="url" type="text" class="form__input" required />
+      </div>
+    </div>
+    <div class="articleButtons">
+      <!-- radio buttons to activate tags for categories -->
+      <div class="button-container">
+        <app-button buttonText="Confirm" buttonStyle="primary"></app-button>
+      </div>
+    </div>
+  </div>
+</form>
