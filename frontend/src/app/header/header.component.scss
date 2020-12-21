@@ -1,3 +1,17 @@
+:root {
+  --color-primary: #ffffff;
+  --color-secondary: #c4c4c4;
+  --color-tertiary: #575555;
+  --color-highlight: #ff0707;
+  --color-text-dark: #000000;
+  --color-text-light: #ffffff;
+
+  --breakpoint-s: 576px;
+  --breakpoint-m: 768px;
+  --breakpoint-l: 992px;
+  --breakpoint-xl: 1200px;
+}
+
 .header {
   height: 80px;
   background-color: #ffffff;
@@ -6,5 +20,30 @@
   justify-content: space-between;
   img {
     height: 90%;
+  }
+}
+
+i {
+  color: var(--color-text-dark);
+  margin: 25px;
+  font-size: 30px;
+}
+
+.nav-hidden-mobile {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav-hidden-desktop {
+    display: none;
+    pointer-events: none;
+  }
+
+  .nav-hidden-mobile {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none !important;
   }
 }

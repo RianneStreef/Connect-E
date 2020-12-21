@@ -1,10 +1,26 @@
+:root {
+  --color-primary: #ffffff;
+  --color-secondary: #c4c4c4;
+  --color-tertiary: #575555;
+  --color-highlight: #ff0707;
+  --color-text-dark: #000000;
+  --color-text-light: #ffffff;
+}
+
 .aside {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  background-color: #575555;
-  color: #ffffff;
+  background-color: var(--color-tertiary);
+  color: var(--color-primary);
   width: 200px;
   padding: 10px;
   height: 100%;
+  // display: none;
+
+  //only show with article feed
+}
+
+h2 {
+  margin-left: 10px;
 }

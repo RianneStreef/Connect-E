@@ -1,0 +1,10 @@
+h2 {
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .articleForm {
+    display: flex;
+    flex-direction: row;
+  }
+}

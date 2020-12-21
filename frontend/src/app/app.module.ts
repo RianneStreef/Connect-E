@@ -12,6 +12,7 @@ import { ArticleComponent } from './article/article.component';
 import { MessageComponent } from './message/message.component';
 import { AsideComponent } from './aside/aside.component';
 import { MainComponent } from './main/main.component';
+import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MainComponent } from './main/main.component';
     ArticleComponent,
     MessageComponent,
     AsideComponent,
-    MainComponent
+    MainComponent,
+    NewsfeedComponent
   ],
   imports: [
     BrowserModule,

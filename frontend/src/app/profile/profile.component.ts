@@ -12,4 +12,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // when profile is displayed, change buttons to profile and log out
+
 }
