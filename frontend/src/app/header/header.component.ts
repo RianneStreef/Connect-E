@@ -10,11 +10,14 @@ export class HeaderComponent implements OnInit {
   title = 'Connect-E';
 
   @Input() isLoggedIn: boolean;
-
+  @Input() displaySignUp: boolean;
+  @Input() setDisplaySignUp: void;
 
   // isSignedUp = true;
 
-  constructor() { }
+  constructor() {
+
+   }
 
 
   ngOnInit(): void {
