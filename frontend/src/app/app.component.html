@@ -1,4 +1,7 @@
 <div class="wrapper">
-  <app-header [isLoggedIn]="isLoggedIn"></app-header>
-  <app-main></app-main>
+  <app-header
+    [isLoggedIn]="isLoggedIn"
+    [displaySignUp]="displaySignUp"
+  ></app-header>
+  <app-main [displaySignUp]="displaySignUp"></app-main>
 </div>

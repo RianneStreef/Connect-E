@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  isLoggedIn = true;
+  isLoggedIn = false;
+  displaySignUp = false;
 
+  setDisplaySignUp() {
+    this.isLoggedIn = !this.isLoggedIn;
+  }
 }

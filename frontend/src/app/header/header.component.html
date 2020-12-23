@@ -9,6 +9,7 @@
   <div *ngIf="!isLoggedIn; else loggedInButtons">
     <div class="headerButtonsLoggedOut nav-hidden-mobile">
       <app-button
+        [displaySignUp]="displaySignUp"
         class="signUpButton"
         buttonText="Sign Up"
         buttonStyle="primary"

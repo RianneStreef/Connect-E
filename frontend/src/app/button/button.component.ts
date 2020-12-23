@@ -7,8 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
   @Input() buttonStyle: string;
-
   @Input() buttonText: string;
+  @Input() displaySignUp: boolean;
+  @Input() setDisplaySignUp: void;
+
 
   getClass() {
     if (this.buttonStyle === 'primary') {
@@ -18,7 +20,10 @@ export class ButtonComponent implements OnInit {
     }
   }
 
-  constructor() {}
+  constructor() {
+    console.log("display sign up status: ")
+    console.log(this.displaySignUp);
+  }
 
   ngOnInit(): void {}
 }
