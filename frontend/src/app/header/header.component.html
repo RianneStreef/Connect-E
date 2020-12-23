@@ -6,16 +6,33 @@
 
   <i class="fas fa-user-plus nav-hidden-desktop"></i>
 
-  <div class="headerButtons nav-hidden-mobile">
-    <app-button
-      class="signUpButton"
-      buttonText="Sign Up"
-      buttonStyle="primary"
-    ></app-button>
-    <app-button
-      class="loginButton"
-      buttonText="Login"
-      buttonStyle="primary"
-    ></app-button>
+  <div *ngIf="!isLoggedIn; else loggedInButtons">
+    <div class="headerButtonsLoggedOut nav-hidden-mobile">
+      <app-button
+        class="signUpButton"
+        buttonText="Sign Up"
+        buttonStyle="primary"
+      ></app-button>
+      <app-button
+        class="loginButton"
+        buttonText="Login"
+        buttonStyle="primary"
+      ></app-button>
+    </div>
   </div>
+
+  <ng-template #loggedInButtons>
+    <div class="headerButtonsLoggedIn nav-hidden-mobile">
+      <app-button
+        class="profileButton"
+        buttonText="Profile"
+        buttonStyle="primary"
+      ></app-button>
+      <app-button
+        class="logoutButton"
+        buttonText="Logout"
+        buttonStyle="primary"
+      ></app-button>
+    </div>
+  </ng-template>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +9,10 @@ export class HeaderComponent implements OnInit {
 
   title = 'Connect-E';
 
-  isSignedUp = true;
+  @Input() isLoggedIn: boolean;
+
+
+  // isSignedUp = true;
 
   constructor() { }
 
@@ -28,21 +31,21 @@ export class HeaderComponent implements OnInit {
 //   };
   
 
-  // Functions ALWAYS has a verb
-  changeLoginStatus() {
-    this.isSignedUp = !this.isSignedUp;
-  }
+//   // Functions ALWAYS has a verb
+//   changeLoginStatus() {
+//     this.isSignedUp = !this.isSignedUp;
+//   }
 
-  showButton() {
-    // onclick isSignedUp = false;
+//   showButton() {
+//     // onclick isSignedUp = false;
 
-    if (this.isSignedUp) {
-      // add display: none to login button & show login card
-    }
-    else {
-    // display: none on sign up button & show sign up card
-  }
+//     if (this.isSignedUp) {
+//       // add display: none to login button & show login card
+//     }
+//     else {
+//     // display: none on sign up button & show sign up card
+//   }
 
-}
+// }
 
 }

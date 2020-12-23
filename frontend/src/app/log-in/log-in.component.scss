@@ -2,15 +2,14 @@ h2 {
   text-align: center;
 }
 
-.loginCard {
+.login-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 60%;
 }
 
 @media only screen and (min-width: 768px) {
-  .loginCard {
-    width: 40%;
+  .login-card {
+    width: 60%;
   }
 }
