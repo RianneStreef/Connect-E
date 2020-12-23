@@ -1,7 +1,13 @@
 <div class="wrapper">
-  <app-header></app-header>
+  <app-header
+    [isLoggedIn]="isLoggedIn"
+    [setLoggedIn]="setLoggedIn"
+  ></app-header>
   <div class="main-container">
     <app-aside></app-aside>
-    <app-main></app-main>
+    <app-main [isLoggedIn]="isLoggedIn" [setLoggedIn]="setLoggedIn"></app-main>
+    <!-- <app-modal *ngif="isModalShowing" type="loginType"></app-modal>
+    <button (click)="() => handleLoginForms("signup")">Button</button>
+    <button (click)="() => handleLoginForms("login")">Button</button> -->
   </div>
 </div>

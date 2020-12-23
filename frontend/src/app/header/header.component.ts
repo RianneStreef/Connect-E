@@ -1,32 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
   title = 'Connect-E';
 
   isSignedUp = true;
 
-  constructor() { }
+  @Input() isLoggedIn: boolean;
+  @Input() setLoggedIn: void;
 
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   // changeHeaderClass() {
-//     if (window.pageYOffset > 1) {
-//       header.classList.add('header-background')
-//     } else {
-//       header.classList.remove('header-background')
-//     }
-//   }window.onscroll = function () {
-//     changeHeaderClass();
-//   };
-  
+  //     if (window.pageYOffset > 1) {
+  //       header.classList.add('header-background')
+  //     } else {
+  //       header.classList.remove('header-background')
+  //     }
+  //   }window.onscroll = function () {
+  //     changeHeaderClass();
+  //   };
 
   // Functions ALWAYS has a verb
   changeLoginStatus() {
@@ -38,11 +37,8 @@ export class HeaderComponent implements OnInit {
 
     if (this.isSignedUp) {
       // add display: none to login button & show login card
+    } else {
+      // display: none on sign up button & show sign up card
     }
-    else {
-    // display: none on sign up button & show sign up card
   }
-
-}
-
 }

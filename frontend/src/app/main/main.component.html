@@ -1,7 +1,11 @@
 <div class="main">
-  <!-- <app-log-in></app-log-in> -->
-  <!-- <app-sign-up></app-sign-up> -->
-  <!-- <app-profile></app-profile> -->
-  <!-- <app-article></app-article> -->
+  <button (click)="(setLoggedIn)">Click Me</button>
+  <app-log-in *ngIf="!isLoggedIn; else mainAuthComponent"></app-log-in>
+  <app-sign-up></app-sign-up>
+  <ng-template #mainAuthComponent>
+    <app-profile></app-profile>
+    <app-article></app-article>
+  </ng-template>
+
   <app-newsfeed></app-newsfeed>
 </div>

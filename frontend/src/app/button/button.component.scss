@@ -25,7 +25,7 @@
 
   &:hover {
     color: white;
-    transition: all 400ms ease-in;
+    transition: border 400ms ease-in, color 100ms ease-in;
     //transition: color 100ms ease-in;
     background-color: var(--color-highlight);
     border: 1px solid var(--color-text-light);
