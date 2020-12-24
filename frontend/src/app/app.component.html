@@ -3,5 +3,9 @@
     [isLoggedIn]="isLoggedIn"
     [displaySignUp]="displaySignUp"
   ></app-header>
-  <app-main [displaySignUp]="displaySignUp"></app-main>
+  <div class="main-wrapper">
+    <app-aside></app-aside>
+
+    <app-main [displaySignUp]="displaySignUp"></app-main>
+  </div>
 </div>
