@@ -1,7 +1,15 @@
 <div class="main">
-  <!-- <app-log-in></app-log-in> -->
-  <!-- <app-sign-up></app-sign-up> -->
-  <!-- <app-profile></app-profile> -->
-  <!-- <app-article></app-article> -->
-  <app-newsfeed></app-newsfeed>
+  <!-- Are we authenticated / logged in? -->
+  <div *ngIf="!isLoggedIn; else mainSection">
+    <!-- Are we going to show login or sign up form? -->
+    <app-log-in *ngIf="!displaySignUp; else appSignUp"></app-log-in>
+    <ng-template #appSignUp>
+      <app-sign-up></app-sign-up>
+    </ng-template>
+  </div>
+  <ng-template #mainSection>
+    <app-profile></app-profile>
+    <app-article></app-article>
+    <app-newsfeed></app-newsfeed>
+  </ng-template>
 </div>
