@@ -2,6 +2,12 @@
   <div class="logoLink logoLinkImage" id="logoLink">
     <a></a>
   </div>
+  <app-button
+    class="loggedInButton"
+    buttonText="Change log in status"
+    buttonStyle="primary"
+    (click)="setLogIn()"
+  ></app-button>
   <h1>{{ title }}</h1>
 
   <i class="fas fa-user-plus nav-hidden-desktop"></i>
