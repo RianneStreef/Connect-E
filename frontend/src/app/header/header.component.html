@@ -10,15 +10,16 @@
     <div class="headerButtonsLoggedOut nav-hidden-mobile">
       <app-button
         [displaySignUp]="displaySignUp"
-        (click)="(setDisplaySignUp)"
         class="signUpButton"
         buttonText="Sign Up"
         buttonStyle="primary"
+        (click)="setDisplaySignUp()"
       ></app-button>
       <app-button
         class="loginButton"
         buttonText="Login"
         buttonStyle="primary"
+        (click)="unsetDisplaySignUp()"
       ></app-button>
     </div>
   </div>

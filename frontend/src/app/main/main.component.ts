@@ -7,9 +7,18 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
+  @Input() isLoggedIn: boolean;
   @Input() displaySignUp: boolean;
+  @Input() displayProfile: boolean;
 
-  constructor() {}
+
+
+  constructor() {
+    console.log('displaySignUp ' + this.displaySignUp);
+    console.log('isLoggedIn ' + this.isLoggedIn);
+    console.log('isProfile ' + this.displayProfile);
+
+  }
 
   ngOnInit(): void {}
 

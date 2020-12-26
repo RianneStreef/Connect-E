@@ -9,7 +9,9 @@ export class ButtonComponent implements OnInit {
   @Input() buttonStyle: string;
   @Input() buttonText: string;
   @Input() displaySignUp: boolean;
-  @Input() setDisplaySignUp: void;
+  // @Input() setDisplaySignUp: Function;
+
+  // @Input() handleClick: Function;
 
 
   getClass() {
@@ -21,8 +23,7 @@ export class ButtonComponent implements OnInit {
   }
 
   constructor() {
-    console.log("display sign up status: ")
-    console.log(this.displaySignUp);
+
   }
 
   ngOnInit(): void {}

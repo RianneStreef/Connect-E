@@ -8,9 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   isLoggedIn = false;
-  displaySignUp = false;
+  displaySignUp = true;
+  displayProfile = false;
 
-  setDisplaySignUp() {
-    this.isLoggedIn = !this.isLoggedIn;
-  }
 }

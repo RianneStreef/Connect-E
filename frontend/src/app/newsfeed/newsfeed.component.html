@@ -1,16 +1,23 @@
-<h2>Articles</h2>
+<div class="news-wrapper">
+  <app-aside></app-aside>
+  <div class="article-wrapper">
+    <h2>Articles</h2>
+    <div class="displayArticles"></div>
+  </div>
+</div>
 <!-- 
 <div id="newsfeed">
   <div [Articles]="Articles" *ngFor="let article of Articles">
     <h3>
       <a [title]="article.name">
-        {{ article.name }}
+        {{ article.title }}
       </a>
     </h3>
 
     <p *ngIf="article.description">Description: {{ article.description }}</p>
   </div>
+</div> 
 
 I did import Articles in newsfeed, declared the type.. 
 
-</div> -->
+-->
