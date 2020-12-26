@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
 
   @Input() isLoggedIn: boolean;
   @Input() displaySignUp: boolean;
+  @Input() displayProfile: boolean;
 
   // @Input() handleClick: Function;
   // @Input() setDisplaySignUp: Function;
@@ -19,7 +20,9 @@ export class HeaderComponent implements OnInit {
   setDisplaySignUp() {
     if (this.displaySignUp == false) {
       console.log('changing displaySignUp status')
+      console.log(this.displaySignUp)
       this.displaySignUp = true;
+
     }
     console.log("setting displaySetUp value")
     console.log(this.displaySignUp)
@@ -35,7 +38,18 @@ export class HeaderComponent implements OnInit {
   }
 
 
+  setLogIn() {
+  this.isLoggedIn = !this.isLoggedIn;
+  console.log(this.isLoggedIn);
+
+  }
+
+
   constructor() {
+    console.log('displaySignUp ' + this.displaySignUp);
+    console.log('isLoggedIn ' + this.isLoggedIn);
+    console.log('isProfile ' + this.displayProfile);
+
 
  
 
