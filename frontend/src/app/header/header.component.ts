@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -13,36 +13,31 @@ export class HeaderComponent implements OnInit {
   @Input() displaySignUp: boolean;
   @Input() displayProfile: boolean;
 
+  @Output() didLogIn = new EventEmitter();
+  @Output() clickedSignUp = new EventEmitter();
+  @Output() clickedLogIn = new EventEmitter();
+  @Output() clickedProfile = new EventEmitter();
+
   // @Input() handleClick: Function;
   // @Input() setDisplaySignUp: Function;
 
+  setLogIn() {
+    this.didLogIn.emit();
+  }
   
   setDisplaySignUp() {
-    if (this.displaySignUp == false) {
-      console.log('changing displaySignUp status')
-      console.log(this.displaySignUp)
-      this.displaySignUp = true;
-
-    }
-    console.log("setting displaySetUp value")
-    console.log(this.displaySignUp)
+    this.clickedSignUp.emit();
   }
-
+ 
   unsetDisplaySignUp() {
-    if (this.displaySignUp == true) {
-      console.log('changing displaySignUp status back')
-      this.displaySignUp = false;
-    }
-    console.log("setting displaySetUp value")
-    console.log(this.displaySignUp)
+    this.clickedLogIn.emit();
+  }
+ 
+ 
+  setDisplayProfile() {
+    this.clickedProfile.emit();
   }
 
-
-  setLogIn() {
-  this.isLoggedIn = !this.isLoggedIn;
-  console.log(this.isLoggedIn);
-
-  }
 
 
   constructor() {
@@ -82,5 +77,4 @@ export class HeaderComponent implements OnInit {
 //   }
 
 // }
-
 }

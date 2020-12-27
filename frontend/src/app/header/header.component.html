@@ -33,9 +33,11 @@
   <ng-template #loggedInButtons>
     <div class="headerButtonsLoggedIn nav-hidden-mobile">
       <app-button
+        [displayProfile]="displayProfile"
         class="profileButton"
         buttonText="Profile"
         buttonStyle="primary"
+        (click)="setDisplayProfile()"
       ></app-button>
       <app-button
         class="logoutButton"
