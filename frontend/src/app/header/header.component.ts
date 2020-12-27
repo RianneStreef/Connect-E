@@ -48,11 +48,7 @@ export class HeaderComponent implements OnInit {
   constructor() {
     console.log('displaySignUp ' + this.displaySignUp);
     console.log('isLoggedIn ' + this.isLoggedIn);
-    console.log('isProfile ' + this.displayProfile);
-
-
- 
-
+    console.log('isProfile ' + this.displayProfile); 
    }
 
 

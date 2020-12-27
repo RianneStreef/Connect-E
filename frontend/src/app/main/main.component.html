@@ -1,22 +1,19 @@
-<div class="main">
-  <div *ngIf="!isLoggedIn; else mainSection">
-    <div *ngIf="displaySignUp; else appLogin">
-      <app-sign-up></app-sign-up>
-    </div>
+<div *ngIf="isLoggedIn; else mainSection">
+  <div *ngIf="displaySignUp; else appLogin">
+    <app-sign-up></app-sign-up>
   </div>
-
-  <ng-template #appLogin>
-    <app-log-in></app-log-in>
-  </ng-template>
-
-  <ng-template #mainSection>
-    MAIN WORKS
-    <!-- <div *ngIf="displayProfile; else newsFeed">
-      <app-profile></app-profile>
-    </div> -->
-  </ng-template>
-
-  <ng-template #newFeed>
-    <app-newsfeed></app-newsfeed>
-  </ng-template>
 </div>
+
+<ng-template #appLogin>
+  <app-log-in></app-log-in>
+</ng-template>
+
+<ng-template #mainSection>
+  <div *ngIf="displayProfile; else newsFeed">
+    <app-profile></app-profile>
+  </div>
+</ng-template>
+
+<ng-template #newsFeed>
+  <app-newsfeed></app-newsfeed>
+</ng-template>

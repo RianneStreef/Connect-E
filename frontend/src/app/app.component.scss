@@ -1,9 +1,17 @@
 app-main {
   height: 100%;
   width: 100%;
-}
-.main-wrapper {
+
   display: flex;
   flex-direction: row;
+  flex-grow: 1;
+
+  margin: 0;
+  padding: 0;
   height: 100%;
+  width: 100%;
+  background-image: url("../assets/img/background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
