@@ -1,3 +1,4 @@
+<div>{{ isLoggedIn }}</div>
 <div *ngIf="isLoggedIn; else mainSection">
   <div *ngIf="displaySignUp; else appLogin">
     <app-sign-up></app-sign-up>
