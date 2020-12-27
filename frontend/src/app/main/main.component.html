@@ -1,17 +1,17 @@
-<div *ngIf="isLoggedIn; else mainSection">
+<div *ngIf="!isLoggedIn; else mainSection">
   <div *ngIf="displaySignUp; else appLogin">
     <app-sign-up></app-sign-up>
   </div>
 </div>
 
-<ng-template #appLogin>
-  <app-log-in></app-log-in>
-</ng-template>
-
 <ng-template #mainSection>
   <div *ngIf="displayProfile; else newsFeed">
     <app-profile></app-profile>
   </div>
+</ng-template>
+
+<ng-template #appLogin>
+  <app-log-in></app-log-in>
 </ng-template>
 
 <ng-template #newsFeed>

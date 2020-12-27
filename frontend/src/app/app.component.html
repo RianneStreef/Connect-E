@@ -1,11 +1,21 @@
 <div class="wrapper">
   <app-header
     [isLoggedIn]="isLoggedIn"
+    (didLogIn)="setLogIn()"
     [displaySignUp]="displaySignUp"
+    (clickedSignUp)="setDisplaySignUp()"
+    (clickedLogIn)="unsetDisplaySignUp()"
+    [displayProfile]="displayProfile"
+    (clickedProfile)="setDisplayProfile()"
   ></app-header>
   <!-- <div class="main-wrapper">
     <app-aside></app-aside> -->
 
-  <app-main [displaySignUp]="displaySignUp"></app-main>
+  <app-main
+    [isLoggedIn]="isLoggedIn"
+    [displaySignUp]="displaySignUp"
+    [displayProfile]="displayProfile"
+    (clickedQuitProfile)="unsetDisplayProfile()"
+  ></app-main>
   <!-- </div> -->
 </div>
