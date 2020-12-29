@@ -31,7 +31,7 @@ con.connect(function(err) {
 //   console.log("Info inserted");
 // });
 
- 
+
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -45,12 +45,17 @@ app.use((req, res, next) => {
   next();
 });
 
+
+
 app.use(express.json());
 
 app.use("/images", express.static(path.join(__dirname, "images")));
 
-app.use("/api/articles", articleRoutes);
+// app.use("/api/articles", articleRoutes);
 // app.use("/api/auth", userRoutes);
 
+// app.get('/api/articles', (req, res, next) => {
+//   articles
+// })
 
 module.exports = app;
