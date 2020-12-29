@@ -6,7 +6,10 @@
 
 <ng-template #mainSection>
   <div *ngIf="displayProfile; else newsFeed">
-    <app-profile></app-profile>
+    <app-profile
+      [displayProfile]="displayProfile"
+      (clickedQuitProfile)="unsetDisplayProfile()"
+    ></app-profile>
   </div>
 </ng-template>
 

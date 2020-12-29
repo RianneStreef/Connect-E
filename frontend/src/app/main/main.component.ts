@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -11,6 +11,12 @@ export class MainComponent implements OnInit {
   @Input() displaySignUp: boolean;
   @Input() displayProfile: boolean;
 
+
+  @Output() clickedQuitProfile = new EventEmitter();
+
+  unsetDisplayProfile() {
+    this.clickedQuitProfile.emit();
+  }
 
 
   constructor() { }
