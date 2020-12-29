@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Articles } from './../mock-articles'
+import { ArticlesService } from './../articles.service'
 
 @Component({
   selector: 'app-newsfeed',
@@ -8,7 +8,12 @@ import { Articles } from './../mock-articles'
 })
 export class NewsfeedComponent implements OnInit {
 
-  @Input() Articles: object;
+  // async function getProducts() {
+  //   let allArticles = await ArticlesService.collection;
+  //   return allArticles;
+  // }
+
+  @Input() Articles: Object;
 
   constructor() { }
 

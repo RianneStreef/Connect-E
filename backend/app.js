@@ -26,6 +26,11 @@ con.connect(function(err) {
   console.log("Connected!");
 });
 
+// con.query("insert into articles (title, description, URL) values ('MyTitle','The title of my first article', 'www.myArticle.com')", function (err, result) {
+//   if (err) throw err;
+//   console.log("Info inserted");
+// });
+
  
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
