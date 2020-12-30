@@ -12,10 +12,10 @@ export class HeaderComponent implements OnInit {
   @Input() isLoggedIn: boolean;
   @Input() displaySignUp: boolean;
   @Input() displayProfile: boolean;
+  @Input() boolValue: boolean;
 
   @Output() didLogIn = new EventEmitter();
-  @Output() clickedSignUp = new EventEmitter();
-  @Output() clickedLogIn = new EventEmitter();
+  @Output() clickedDisplayStatus = new EventEmitter();
   @Output() clickedProfile = new EventEmitter();
 
   // @Input() handleClick: Function;
@@ -25,20 +25,22 @@ export class HeaderComponent implements OnInit {
     this.didLogIn.emit();
   }
   
-  setDisplaySignUp() {
-    this.clickedSignUp.emit();
-  }
+  // setDisplaySignUp() {
+  //   this.clickedSignUp.emit();
+  // }
  
-  unsetDisplaySignUp() {
-    this.clickedLogIn.emit();
-  }
+  // unsetDisplaySignUp() {
+  //   this.clickedLogIn.emit();
+  // }
  
  
   setDisplayProfile() {
     this.clickedProfile.emit();
   }
 
-
+toggleDisplaySignUp(boolValue) {
+  this.clickedDisplayStatus.emit();
+}
 
   constructor() {
     console.log('displaySignUp ' + this.displaySignUp);

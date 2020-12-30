@@ -3,8 +3,7 @@
     [isLoggedIn]="isLoggedIn"
     (didLogIn)="setLogIn()"
     [displaySignUp]="displaySignUp"
-    (clickedSignUp)="setDisplaySignUp()"
-    (clickedLogIn)="unsetDisplaySignUp()"
+    (clickedDisplayStatus)="toggleDisplaySignUp(boolValue)"
     [displayProfile]="displayProfile"
     (clickedProfile)="setDisplayProfile()"
   ></app-header>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  @Input() boolValue: boolean;
 
   isLoggedIn = true;
   displaySignUp = false;
@@ -17,20 +19,36 @@ export class AppComponent {
     console.log('isLoggedIn value' + this.isLoggedIn);
     }
 
-   setDisplaySignUp() {
-    if (this.displaySignUp == false) {
-      console.log('changing displaySignUp status')
-      console.log(this.displaySignUp)
-      this.displaySignUp = true;
-    }
-  }
 
-  unsetDisplaySignUp() {
-    if (this.displaySignUp == true) {
-      console.log('changing displaySignUp status back')
-      this.displaySignUp = false;
+    toggleDisplaySignUp(boolValue) {
+
+      console.log(boolValue);
+
+      if (boolValue == true) {
+        this.displaySignUp = true;
+      }
+      if (boolValue == false) {
+        this.displaySignUp = false;
+      }
+      else {
+        this.displaySignUp = !this.displaySignUp;
+      }
     }
-  }
+
+  //  setDisplaySignUp() {
+  //   if (this.displaySignUp == false) {
+  //     console.log('changing displaySignUp status')
+  //     console.log(this.displaySignUp)
+  //     this.displaySignUp = true;
+  //   }
+  // }
+
+  // unsetDisplaySignUp() {
+  //   if (this.displaySignUp == true) {
+  //     console.log('changing displaySignUp status back')
+  //     this.displaySignUp = false;
+  //   }
+  // }
 
   setDisplayProfile() {
     if (this.displayProfile == false) {
