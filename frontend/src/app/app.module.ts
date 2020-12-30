@@ -14,6 +14,7 @@ import { MessageComponent } from './message/message.component';
 import { AsideComponent } from './aside/aside.component';
 import { MainComponent } from './main/main.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
+import { IconButtonComponent } from './icon-button/icon-button.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { NewsfeedComponent } from './newsfeed/newsfeed.component';
     MessageComponent,
     AsideComponent,
     MainComponent,
-    NewsfeedComponent
+    NewsfeedComponent,
+    IconButtonComponent
   ],
   imports: [
     BrowserModule,

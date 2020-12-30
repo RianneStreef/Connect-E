@@ -10,9 +10,6 @@ export class ButtonComponent implements OnInit {
   @Input() buttonText: string;
   @Input() displaySignUp: boolean;
   @Input() displayProfile: boolean;
-  // @Input() setDisplaySignUp: Function;
-
-  // @Input() handleClick: Function;
 
 
   getClass() {
