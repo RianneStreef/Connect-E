@@ -8,11 +8,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ProfileComponent implements OnInit {
 
   @Input() displayProfile: boolean;
+  @Input() boolValue: boolean;
 
-  @Output() clickedQuitProfile = new EventEmitter();
+  @Output() clickedProfileDisplay = new EventEmitter();
 
-  unsetDisplayProfile() {
-    this.clickedQuitProfile.emit();
+  toggleDisplayProfile(boolValue) {
+    this.clickedProfileDisplay.emit();
   }
   constructor() { }
 

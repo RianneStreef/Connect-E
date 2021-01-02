@@ -1,7 +1,5 @@
-<div class="header">
-  <div class="logoLink logoLinkImage" id="logoLink">
-    <a></a>
-  </div>
+<div class="header" id="header">
+  <div class="logoLink logoLinkImage" id="logoLink"></div>
   <app-button
     class="loggedInButton"
     buttonText="Change log in status"
@@ -35,13 +33,18 @@
   </div>
 
   <ng-template #loggedInButtons>
+    <app-icon-button
+      class="icon-button nav-hidden-desktop"
+      (click)="toggleDisplayProfile(true)"
+    >
+    </app-icon-button>
     <div class="headerButtonsLoggedIn nav-hidden-mobile">
       <app-button
         [displayProfile]="displayProfile"
         class="profileButton"
         buttonText="Profile"
         buttonStyle="primary"
-        (click)="setDisplayProfile()"
+        (click)="toggleDisplayProfile(true)"
       ></app-button>
       <app-button
         class="logoutButton"

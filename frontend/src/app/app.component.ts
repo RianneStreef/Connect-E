@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class AppComponent {
 
   @Input() boolValue: boolean;
+  @Input() boolValue2: boolean;
 
   isLoggedIn = true;
   displaySignUp = false;
@@ -16,7 +17,7 @@ export class AppComponent {
 
   setLogIn() {
     this.isLoggedIn = !this.isLoggedIn;
-    console.log('isLoggedIn value' + this.isLoggedIn);
+    console.log('isLoggedIn value ' + this.isLoggedIn);
     }
 
 
@@ -35,32 +36,25 @@ export class AppComponent {
       }
     }
 
-  //  setDisplaySignUp() {
-  //   if (this.displaySignUp == false) {
-  //     console.log('changing displaySignUp status')
-  //     console.log(this.displaySignUp)
-  //     this.displaySignUp = true;
-  //   }
-  // }
 
-  // unsetDisplaySignUp() {
-  //   if (this.displaySignUp == true) {
-  //     console.log('changing displaySignUp status back')
-  //     this.displaySignUp = false;
-  //   }
-  // }
+    toggleDisplayProfile(boolValue2) {
 
-  setDisplayProfile() {
-    if (this.displayProfile == false) {
-      console.log('changing displayProfile status')
-      this.displayProfile = true;
+      console.log("somethings is clicked");
+
+      if (boolValue2 == true) {
+        this.displayProfile = true;
+      }
+      if (boolValue2 == false) {
+        this.displayProfile = false;
+      }
+      else {
+        this.displayProfile = !this.displayProfile;
+      }
     }
-  }
-  unsetDisplayProfile() {
-    if (this.displayProfile == true) {
-      console.log('changing displayProfile status')
-      this.displayProfile = false;
-    }
-  }
 
+
+
+
+
+  
 }
