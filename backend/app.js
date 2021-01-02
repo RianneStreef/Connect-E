@@ -3,6 +3,7 @@ const app = express();
 
 const mysql = require('mysql');
 const chalk = require('chalk');
+const axios = require('axios').default;
 
 const path = require("path");
 
@@ -23,7 +24,7 @@ con.connect(function(err) {
   console.log("Connected!");
 });
 
-// con.query("insert into articles (title, description, URL) values ('OtherTitle','A very nice article', 'www.myArticle.com')", function (err, result) {
+// con.query("insert into articles (title, description, URL) values ('NextTitle','The next article', 'www.myArticle.com')", function (err, result) {
 //   if (err) throw err;
 //   console.log("Info inserted");
 // });
@@ -52,15 +53,13 @@ app.use(express.json());
 // app.use("/api/articles", articleRoutes);
 // app.use("/api/auth", userRoutes);
 
-// app.get('/api/articles', (req, res, next) => {
-//   articles
-// })
 
 
 
 
-app.use('/api/articles', (req, res, next) => {
-  con.query('SELECT * FROM articles', function (err, result) {
+
+app.get('/api/articles', (req, res, next) => {
+  con.query('SELECT * FROM articles ORDER BY id DESC LIMIT 10', function (err, result) {
     if (err) {
       return res.status(400).json({
         message: 'Unable to fetch articles',
@@ -71,5 +70,37 @@ app.use('/api/articles', (req, res, next) => {
     });
   });
 });
+
+// can we let users choose the max of how many articles the want to see?
+
+
+app.delete('/api/articles', (req, res, next) => { 
+ con.query('DELETE FROM articles WHERE id=2', function (err, result) {
+    if (err) {
+      return res.status(400).json({
+        message: "Couldn't delete article!",
+      });
+    }
+     return res.status(200).json({
+        message: "Deleted!"
+      });
+    });
+  });
+
+// need to get the id nr of the article when it is generated, so I can use it for delete, and maybe like 
+
+
+// axios.get('/api/articles')
+// .then(function (response) {
+//   return res.status(200).json({
+//     articles: result,
+//   })
+// })
+// .catch(function (error) {
+//   return res.status(400).json({
+//     message: 'Unable to fetch articles',
+//   })
+// })
+
 
 module.exports = app;
