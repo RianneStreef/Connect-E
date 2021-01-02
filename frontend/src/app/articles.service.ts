@@ -18,6 +18,13 @@ constructor(
 //         return data;
 //       });
 
+
+// async function getArticles() {
+//   let allArticles = await articlesService.collection;
+//   return allArticles;
+// }
+
+
 private articlesUrl = 'api/articles';
 
   get collection() {

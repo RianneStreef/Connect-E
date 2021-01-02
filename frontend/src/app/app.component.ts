@@ -10,9 +10,12 @@ export class AppComponent {
   @Input() boolValue: boolean;
   @Input() boolValue2: boolean;
 
+
+
   isLoggedIn = true;
   displaySignUp = false;
   displayProfile = false;
+
 
 
   setLogIn() {
@@ -23,7 +26,7 @@ export class AppComponent {
 
     toggleDisplaySignUp(boolValue) {
 
-      console.log(boolValue);
+      console.log("boolValue in app component " + boolValue);
 
       if (boolValue == true) {
         this.displaySignUp = true;

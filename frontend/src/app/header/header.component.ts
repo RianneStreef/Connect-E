@@ -21,15 +21,13 @@ export class HeaderComponent implements OnInit {
   @Output() clickedSignUpDisplay = new EventEmitter();
   @Output() clickedProfileDisplay = new EventEmitter();
 
-  // @Input() handleClick: Function;
-  // @Input() setDisplaySignUp: Function;
-
   setLogIn() {
     this.didLogIn.emit();
   }
   
   toggleDisplaySignUp(boolValue) {
     console.log('toggle sign up button' + this.clickedSignUpDisplay)
+    console.log("boolValue in header component " + boolValue)
     this.clickedSignUpDisplay.emit();
   }
 
