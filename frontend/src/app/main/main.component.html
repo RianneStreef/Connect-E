@@ -8,7 +8,7 @@
   <div *ngIf="displayProfile; else newsFeed">
     <app-profile
       [displayProfile]="displayProfile"
-      (clickedQuitProfile)="unsetDisplayProfile()"
+      (clickedProfileDisplay)="toggleDisplayProfile(boolValue2)"
     ></app-profile>
   </div>
 </ng-template>

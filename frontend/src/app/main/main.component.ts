@@ -10,12 +10,14 @@ export class MainComponent implements OnInit {
   @Input() isLoggedIn: boolean;
   @Input() displaySignUp: boolean;
   @Input() displayProfile: boolean;
+  @Input() boolValue2: boolean;
 
 
-  @Output() clickedQuitProfile = new EventEmitter();
 
-  unsetDisplayProfile() {
-    this.clickedQuitProfile.emit();
+  @Output() clickedProfileDisplay= new EventEmitter();
+
+  toggleDisplayProfile(boolValue2) {
+    this.clickedProfileDisplay.emit();
   }
 
 

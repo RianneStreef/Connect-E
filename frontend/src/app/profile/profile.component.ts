@@ -8,11 +8,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ProfileComponent implements OnInit {
 
   @Input() displayProfile: boolean;
-  @Input() boolValue: boolean;
+  @Input() boolValue2: boolean;
 
   @Output() clickedProfileDisplay = new EventEmitter();
 
-  toggleDisplayProfile(boolValue) {
+  toggleDisplayProfile(boolValue2) {
     this.clickedProfileDisplay.emit();
   }
   constructor() { }
@@ -20,6 +20,5 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // when profile is displayed, change buttons to profile and log out
 
 }
