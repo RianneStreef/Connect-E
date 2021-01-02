@@ -5,6 +5,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
+
+
 export class HeaderComponent implements OnInit {
 
   title = 'Connect-E';
@@ -13,10 +15,11 @@ export class HeaderComponent implements OnInit {
   @Input() displaySignUp: boolean;
   @Input() displayProfile: boolean;
   @Input() boolValue: boolean;
+  @Input() boolValue2: boolean;
 
   @Output() didLogIn = new EventEmitter();
-  @Output() clickedDisplayStatus = new EventEmitter();
-  @Output() clickedProfile = new EventEmitter();
+  @Output() clickedSignUpDisplay = new EventEmitter();
+  @Output() clickedProfileDisplay = new EventEmitter();
 
   // @Input() handleClick: Function;
   // @Input() setDisplaySignUp: Function;
@@ -25,22 +28,16 @@ export class HeaderComponent implements OnInit {
     this.didLogIn.emit();
   }
   
-  // setDisplaySignUp() {
-  //   this.clickedSignUp.emit();
-  // }
- 
-  // unsetDisplaySignUp() {
-  //   this.clickedLogIn.emit();
-  // }
- 
- 
-  setDisplayProfile() {
-    this.clickedProfile.emit();
+  toggleDisplaySignUp(boolValue) {
+    console.log('toggle sign up button' + this.clickedSignUpDisplay)
+    this.clickedSignUpDisplay.emit();
   }
 
-toggleDisplaySignUp(boolValue) {
-  this.clickedDisplayStatus.emit();
-}
+  toggleDisplayProfile(boolValue2) {
+    this.clickedProfileDisplay.emit();
+  }
+
+
 
   constructor() {
     console.log('displaySignUp ' + this.displaySignUp);
@@ -52,31 +49,17 @@ toggleDisplaySignUp(boolValue) {
   ngOnInit(): void {
   }
 
+
   // changeHeaderClass() {
-//     if (window.pageYOffset > 1) {
-//       header.classList.add('header-background')
-//     } else {
-//       header.classList.remove('header-background')
-//     }
-//   }window.onscroll = function () {
-//     changeHeaderClass();
-//   };
+  //   if (window.pageYOffset > 1) {
+  //     this.header.classList.add('header-background')
+  //   } else {
+  //     this.header.classList.remove('header-background')
+  //   }
+  // }
   
-
-//   // Functions ALWAYS has a verb
-//   changeLoginStatus() {
-//     this.isSignedUp = !this.isSignedUp;
-//   }
-
-//   showButton() {
-//     // onclick isSignedUp = false;
-
-//     if (this.isSignedUp) {
-//       // add display: none to login button & show login card
-//     }
-//     else {
-//     // display: none on sign up button & show sign up card
-//   }
-
-// }
+  // window.onscroll = function () {
+  //   changeHeaderClass();
+  // };
+  
 }
