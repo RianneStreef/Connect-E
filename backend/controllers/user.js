@@ -1,6 +1,6 @@
-const jwt = require("jsonwebtoken");
-const User = require("../models/user");
-const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
+const User = require('../models/user');
+const bcrypt = require('bcrypt');
 
 exports.signup = (req, res, next) => {
   bcrypt.hash(req.body.password, 10).then((hash) => {
@@ -18,7 +18,7 @@ exports.signup = (req, res, next) => {
       .save()
       .then(() => {
         res.status(201).json({
-          message: "User added successfully!",
+          message: 'User added successfully!',
         });
       })
       .catch((error) => {
@@ -30,7 +30,8 @@ exports.signup = (req, res, next) => {
 };
 
 exports.login = (req, res, next) => {
-  User.findOne({ email: req.body.email })
+  console.log(req);
+  /* User.findOne({ email: req.body.email })
     .then((user) => {
       if (!user) {
         return res.status(401).json({
@@ -63,7 +64,7 @@ exports.login = (req, res, next) => {
       res.status(500).json({
         error: error,
       });
-    });
+    }); */
 };
 
 exports.getOneUser = (req, res, next) => {
@@ -88,8 +89,8 @@ exports.modifyUser = (req, res, next) => {
   let newObj = {};
 
   // Picture has changed
-  if (image){
-  // if (req?.body?.sauce) {
+  if (image) {
+    // if (req?.body?.sauce) {
     const parsedData = JSON.parse(req.body.user);
     const imageUrl = host + '/images/' + req.file.filename;
     newObj = {
@@ -103,7 +104,7 @@ exports.modifyUser = (req, res, next) => {
 
     // Picture hasn't changed
   } else {
-    newObj = { ...req.body }; 
+    newObj = { ...req.body };
   }
 
   Sauce.findByIdAndUpdate(
@@ -119,6 +120,6 @@ exports.modifyUser = (req, res, next) => {
       }
     },
   );
-}
+};
 
 // get('/', auth, userCtrl.getMenuOptions);

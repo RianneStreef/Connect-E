@@ -3,7 +3,7 @@
     [isLoggedIn]="isLoggedIn"
     (didLogIn)="setLogIn()"
     [displaySignUp]="displaySignUp"
-    (clickedSignUpDisplay)="toggleDisplaySignUp(boolValue)"
+    (clickedSignUpDisplay)="toggleDisplaySignUp($event)"
     [displayProfile]="displayProfile"
     (clickedProfileDisplay)="toggleDisplayProfile(boolValue)"
   ></app-header>

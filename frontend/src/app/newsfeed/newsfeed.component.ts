@@ -1,13 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ArticlesService } from './../articles.service'
-
+import { ArticlesService } from './../articles.service';
 @Component({
   selector: 'app-newsfeed',
   templateUrl: './newsfeed.component.html',
-  styleUrls: ['./newsfeed.component.scss']
+  styleUrls: ['./newsfeed.component.scss'],
 })
 export class NewsfeedComponent implements OnInit {
-
   // async function getProducts() {
   //   let allArticles = await ArticlesService.collection;
   //   return allArticles;
@@ -15,9 +13,7 @@ export class NewsfeedComponent implements OnInit {
 
   @Input() Articles: Object;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

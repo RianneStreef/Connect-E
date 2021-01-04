@@ -1,7 +1,7 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
-const userCtrl = require("../controllers/user");
+const userCtrl = require('../controllers/user');
 
 // router.get('/', auth, userCtrl.getMenuOptions);
 // router.post('/signup', auth, userCtrl.signup);
@@ -10,6 +10,3 @@ const userCtrl = require("../controllers/user");
 // router.put('/:id', auth, userCtrl.modifyUser);
 
 module.exports = router;
-
-
-
