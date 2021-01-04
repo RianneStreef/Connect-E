@@ -16,7 +16,9 @@ export class HeaderComponent implements OnInit {
 
   @Output() didLogIn = new EventEmitter();
   @Output()
-  clickedSignUpDisplay: EventEmitter<boolean> = new EventEmitter<boolean>();
+  clickedSignUpDisplay: EventEmitter<boolean | null> = new EventEmitter<
+    boolean | null
+  >();
   @Output() clickedProfileDisplay = new EventEmitter();
 
   setLogIn() {

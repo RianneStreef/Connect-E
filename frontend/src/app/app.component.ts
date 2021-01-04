@@ -18,14 +18,12 @@ export class AppComponent {
     console.log('isLoggedIn value ' + this.isLoggedIn);
   }
 
-  toggleDisplaySignUp(boolValue: Boolean) {
+  toggleDisplaySignUp(boolValue: Boolean | null) {
     console.log('toggleDisplaySignUp called');
     console.log('boolValue in app component ' + boolValue);
-
-    if (boolValue == true) {
+    if (boolValue === true) {
       this.displaySignUp = true;
-    }
-    if (boolValue == false) {
+    } else if (boolValue === false) {
       this.displaySignUp = false;
     } else {
       this.displaySignUp = !this.displaySignUp;
