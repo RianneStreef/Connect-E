@@ -12,7 +12,7 @@ export class AppComponent {
 
 
 
-  isLoggedIn = true;
+  isLoggedIn = false;
   displaySignUp = false;
   displayProfile = false;
 

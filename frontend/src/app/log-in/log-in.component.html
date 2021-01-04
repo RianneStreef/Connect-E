@@ -1,15 +1,27 @@
-<form class="card login-card">
+<form
+  class="card login-card"
+  #loginForm="ngForm"
+  (ngSubmit)="login(loginForm.value)"
+>
   <div class="form__group">
     <label class="form__label" for="email">Email:</label>
-    <input id="email" name="email" type="email" class="form__input" required />
+    <input
+      (ngModel)="(model.email)"
+      name="email"
+      type="email"
+      class="form__input"
+      id="email"
+      required
+    />
   </div>
   <div class="form__group">
     <label class="form__label" for="password">Password: </label>
     <input
-      id="password"
+      (ngModel)="(model.password)"
       name="password"
       type="text"
       class="form__input"
+      id="password"
       required
     />
   </div>

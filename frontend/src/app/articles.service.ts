@@ -1,39 +1,38 @@
 import { Injectable } from '@angular/core';
-import { IArticle } from './article';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { retry, catchError } from 'rxjs/operators';
+
+import { IArticle } from "./article";
 
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class ArticlesService {
+
+  private articlesUrl = 'localhost:3000/api/articles';
 
 
 constructor(
   private http: HttpClient)
 {}
-//     this.collection = fetch(URL)
-//       .then((response) => response.json())
-//       .then((data) => {
-//         return data;
-//       });
 
 
-// async function getArticles() {
-//   let allArticles = await articlesService.collection;
-//   return allArticles;
-// }
 
+  // getArticles(): Observable<IArticle> {
 
-private articlesUrl = 'api/articles';
+    // console.log("articles " + <IArticle[]>)
 
-  get collection() {
-    return this.collection;
-  }
-
-
-// ArticlesInstance = new ArticlesService("http://localhost:3000/api/articles");
-
+    // return this.http.get<IArticle[]>(this.articlesUrl)
+  
+    // .pipe(
+    //  retry(1),
+      // catchError(this.handleError)
+    // )
+  // }
 
 
 }
