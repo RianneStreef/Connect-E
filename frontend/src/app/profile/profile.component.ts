@@ -10,10 +10,10 @@ export class ProfileComponent implements OnInit {
   @Input() displayProfile: boolean;
   @Input() boolValue2: boolean;
 
-  @Output() clickedProfileDisplay = new EventEmitter();
+  @Output() clickedProfileDisplay:  EventEmitter<boolean | null> = new EventEmitter<boolean | null>();
 
   toggleDisplayProfile(boolValue2) {
-    this.clickedProfileDisplay.emit();
+    this.clickedProfileDisplay.emit(boolValue2);
   }
   constructor() { }
 

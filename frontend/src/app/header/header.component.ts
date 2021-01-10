@@ -14,33 +14,34 @@ export class HeaderComponent implements OnInit {
   @Input() isLoggedIn: boolean;
   @Input() displaySignUp: boolean;
   @Input() displayProfile: boolean;
+  @Input() logInValue: boolean;
   @Input() boolValue: boolean;
   @Input() boolValue2: boolean;
 
-  @Output() didLogIn = new EventEmitter();
-  @Output() clickedSignUpDisplay = new EventEmitter();
-  @Output() clickedProfileDisplay = new EventEmitter();
+  @Output() didLogIn : EventEmitter<boolean | null> = new EventEmitter<boolean | null>();
+  @Output() clickedSignUpDisplay: EventEmitter<boolean | null> = new EventEmitter<boolean | null>();
+  @Output() clickedProfileDisplay:  EventEmitter<boolean | null> = new EventEmitter<boolean | null>();
 
-  setLogIn() {
-    this.didLogIn.emit();
+
+  setLogIn(logInValue) {
+    this.didLogIn.emit(logInValue);
   }
   
   toggleDisplaySignUp(boolValue) {
-    console.log('toggle sign up button' + this.clickedSignUpDisplay)
     console.log("boolValue in header component " + boolValue)
-    this.clickedSignUpDisplay.emit();
+    this.clickedSignUpDisplay.emit(boolValue);
   }
 
   toggleDisplayProfile(boolValue2) {
-    this.clickedProfileDisplay.emit();
+    console.log("boolValue in header component " + boolValue2)
+
+    this.clickedProfileDisplay.emit(boolValue2);
   }
 
 
 
   constructor() {
-    console.log('displaySignUp ' + this.displaySignUp);
-    console.log('isLoggedIn ' + this.isLoggedIn);
-    console.log('isProfile ' + this.displayProfile); 
+   
    }
 
 

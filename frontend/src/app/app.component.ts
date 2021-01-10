@@ -7,31 +7,45 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
 
+  @Input() logInValue: boolean;
   @Input() boolValue: boolean;
   @Input() boolValue2: boolean;
 
 
 
-  isLoggedIn = false;
+  isLoggedIn = true;
   displaySignUp = false;
   displayProfile = false;
 
 
 
-  setLogIn() {
-    this.isLoggedIn = !this.isLoggedIn;
+  setLogIn(logInValue: Boolean | null) {
+    if (logInValue === true) {
+      this. isLoggedIn = true;
+    }
+    else if (logInValue === false) {
+      console.log('login should be displayed')
+
+      this.isLoggedIn = false;
+    }
+    else {
+      this.isLoggedIn = !this.isLoggedIn;
+    }
     console.log('isLoggedIn value ' + this.isLoggedIn);
     }
 
 
-    toggleDisplaySignUp(boolValue) {
+    toggleDisplaySignUp(boolValue: Boolean | null) {
 
       console.log("boolValue in app component " + boolValue);
 
-      if (boolValue == true) {
+      if (boolValue === true) {
+        console.log('sign up should be displayed')
         this.displaySignUp = true;
       }
-      if (boolValue == false) {
+      else if (boolValue === false) {
+        console.log('login should be displayed')
+
         this.displaySignUp = false;
       }
       else {
@@ -40,24 +54,20 @@ export class AppComponent {
     }
 
 
-    toggleDisplayProfile(boolValue2) {
+    toggleDisplayProfile(boolValue2: Boolean | null) {
 
-      console.log("somethings is clicked");
+      console.log("boolValue in app component " + boolValue2);
 
-      if (boolValue2 == true) {
+      if (boolValue2 === true) {
         this.displayProfile = true;
+        console.log("profile should be displayed");
+
       }
-      if (boolValue2 == false) {
+      else if (boolValue2 === false) {
         this.displayProfile = false;
       }
       else {
         this.displayProfile = !this.displayProfile;
       }
     }
-
-
-
-
-
-  
 }

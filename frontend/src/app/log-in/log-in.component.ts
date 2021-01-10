@@ -1,4 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
+import axios from 'axios';
+
 
 @Component({
   selector: 'app-log-in',
@@ -13,6 +15,8 @@ export class LogInComponent implements OnInit {
 
   login(formValue) {
     console.log(formValue)
+    const { password, email } = formValue;
+    axios.post('http://localhost:3000/api/login', { password, email });
   }
 
   constructor() { }
