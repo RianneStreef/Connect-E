@@ -13,7 +13,9 @@ import { IArticle } from "./article";
 
 export class ArticlesService {
 
-  private articlesUrl = 'localhost:3000/api/articles';
+  // private articlesUrl = 'localhost:3000/api/articles';
+
+
 
 
 constructor(
