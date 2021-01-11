@@ -15,6 +15,8 @@ export class MainComponent implements OnInit {
   @Input() displayProfile: boolean;
   @Input() boolValue2: boolean;
   @Input() articles: object;
+  @Input() myArticles: object;
+
 
 
   @Output() clickedProfileDisplay: EventEmitter<boolean | null> = new EventEmitter<boolean | null>();
@@ -24,23 +26,6 @@ export class MainComponent implements OnInit {
     this.clickedProfileDisplay.emit(boolValue2);
   }
 
-
-  displayArticles() {
-    this.articles = Axios.get('localhost:3000.api/articles')
-    // return this.articles
-    console.log(this.articles)
-
-  }
-
-
-  // axios.get('localhost:3000/api/articles')
-  // .then((response) => {
-  //   console.log(response.data);
-  //   console.log(response.status);
-  //   console.log(response.statusText);
-  //   console.log(response.headers);
-  //   console.log(response.config);
-  // });
 
   constructor() { }
 

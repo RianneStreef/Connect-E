@@ -1,7 +1,7 @@
 <div class="wrapper">
   <app-header
     [isLoggedIn]="isLoggedIn"
-    (didLogIn)="setLogIn()"
+    (didLogIn)="setLogIn($event)"
     [displaySignUp]="displaySignUp"
     (clickedSignUpDisplay)="toggleDisplaySignUp($event)"
     [displayProfile]="displayProfile"

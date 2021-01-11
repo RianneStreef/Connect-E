@@ -3,16 +3,21 @@
 </div>
 
 <div id="newsfeed">
-  <!-- <div [Articles]="Articles" *ngFor="let article of Articles">
-
+  <div
+    [myArticles]="myArticles"
+    [title]="article.title"
+    *ngFor="let article of myArticles"
+  >
     <h3>
-      <a [title]="article.title" [URL}="article.URL" src={{article.URL}}
-        {{ article.title }}
-      </a>
-    </h3> -->
+      <div {{ article.title }}></div>
+    </h3>
 
-  <!-- <p *ngIf="article.description">Description: {{ article.description }}</p>
-  </div> -->
+    <!-- <p *ngIf="article.description">Description: {{ article.description }}</p>
+  </div>
 </div>
 
+
+
 <!-- I did import Articles in newsfeed, declared the type..  -->
+  </div>
+</div>
