@@ -9,7 +9,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 export class HeaderComponent implements OnInit {
 
-  title = 'Connect-E';
+  heading = 'Connect-E';
+
 
   @Input() isLoggedIn: boolean;
   @Input() displaySignUp: boolean;

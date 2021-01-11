@@ -24,7 +24,7 @@ export class AppComponent {
       this. isLoggedIn = true;
     }
     else if (logInValue === false) {
-      console.log('login should be displayed')
+      console.log('login value is set')
 
       this.isLoggedIn = false;
     }
