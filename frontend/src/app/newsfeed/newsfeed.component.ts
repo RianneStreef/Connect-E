@@ -1,24 +1,45 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { ArticlesService } from './../articles.service';
-import Axios from "axios";
+import Axios from 'axios';
+
+/* type Article = {
+  title: string;
+  description: string;
+  URL: 'string';
+  employeeID: null | number;
+  id: number;
+  usersDisliked: null | [];
+  usersLiked: null | [];
+}; */
 
 @Component({
   selector: 'app-newsfeed',
   templateUrl: './newsfeed.component.html',
-  styleUrls: ['./newsfeed.component.scss']
+  styleUrls: ['./newsfeed.component.scss'],
 })
 export class NewsfeedComponent implements OnInit {
+  // We want to pass myArticles in, but we are
+  //    temporarily adding it in this component
+  // @Input() myArticles: object;
+  myArticles = <any>[];
 
-  @Input() myArticles: object;
+  myArticlesTest = [
+    {
+      title: 'Title 1',
+      description: 'Desc. 1',
+    },
+  ];
 
+  log(value) {
+    console.log(value);
+  }
 
-  async axios (method, url, dataObj) {
+  async axios(method, url, dataObj) {
     try {
       const response = await Axios({
         method: method, // eg 'get'
         url: url, // e.g '/user/12345',
         data: dataObj,
-
       });
       // For example, issues with database or database query,
       //    Or item doesn't exist
@@ -36,21 +57,20 @@ export class NewsfeedComponent implements OnInit {
   }
 
   async getData() {
-    const myArticles = await this.axios(
+    const data = await this.axios(
       'get',
       'http://localhost:3000/api/articles',
-      {},
+      {}
     );
-    console.log('myArticles');
-    console.log(myArticles);
-    return myArticles;
+    console.log(data);
+    this.myArticles = data.articles;
+    console.log(this.myArticles);
+    // return myArticles.articles;
   }
 
   constructor() {
     this.getData();
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
