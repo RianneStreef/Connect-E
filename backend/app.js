@@ -24,7 +24,7 @@ con.connect(function(err) {
   console.log("Connected!");
 });
 
-// con.query("insert into articles (title, description, URL) values ('NextTitle','The next article', 'www.myArticle.com')", function (err, result) {
+// con.query("insert into articles (title, description, URL) values ('Article','Fun article', 'www.myArticle.com')", function (err, result) {
 //   if (err) throw err;
 //   console.log("Info inserted");
 // });
@@ -89,18 +89,11 @@ app.delete('/api/articles', (req, res, next) => {
 
 // need to get the id nr of the article when it is generated, so I can use it for delete, and maybe like 
 
+// app.post('/login', req, res, next => {
 
-// axios.get('/api/articles')
-// .then(function (response) {
-//   return res.status(200).json({
-//     articles: result,
-//   })
-// })
-// .catch(function (error) {
-//   return res.status(400).json({
-//     message: 'Unable to fetch articles',
-//   })
-// })
+// });
+
+
 
 
 module.exports = app;
