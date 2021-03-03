@@ -1,8 +1,11 @@
-const jwt = require("jsonwebtoken");
-const User = require("../models/user");
-const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
+const User = require('../models/user');
+const bcrypt = require('bcrypt');
 
 exports.signup = (req, res, next) => {
+  console.log('USER SIGNUP SUCCESS?');
+  console.log(req.body);
+  res.status(999).json({ message: 'Early exit' });
   bcrypt.hash(req.body.password, 10).then((hash) => {
     const user = new User({
       userId: req.body.userId,
@@ -18,7 +21,7 @@ exports.signup = (req, res, next) => {
       .save()
       .then(() => {
         res.status(201).json({
-          message: "User added successfully!",
+          message: 'User added successfully!',
         });
       })
       .catch((error) => {
@@ -34,7 +37,7 @@ exports.login = (req, res, next) => {
     .then((user) => {
       if (!user) {
         return res.status(401).json({
-          error: new Error("User not found!"),
+          error: new Error('User not found!'),
         });
       }
       bcrypt
@@ -42,12 +45,16 @@ exports.login = (req, res, next) => {
         .then((valid) => {
           if (!valid) {
             return res.status(401).json({
-              error: new Error("Incorrect password!"),
+              error: new Error('Incorrect password!'),
             });
           }
-          const token = jwt.sign({ userId: user._id }, "ljfbfsvdbjxzliuymnw2130lwkendv", {
-            expiresIn: "24h",
-          });
+          const token = jwt.sign(
+            { userId: user._id },
+            'ljfbfsvdbjxzliuymnw2130lwkendv',
+            {
+              expiresIn: '24h',
+            },
+          );
           res.status(200).json({
             userId: user._id,
             token: token,
@@ -88,8 +95,8 @@ exports.modifyUser = (req, res, next) => {
   let newObj = {};
 
   // Picture has changed
-  if (image){
-  // if (req?.body?.sauce) {
+  if (image) {
+    // if (req?.body?.sauce) {
     const parsedData = JSON.parse(req.body.user);
     const imageUrl = host + '/images/' + req.file.filename;
     newObj = {
@@ -103,7 +110,7 @@ exports.modifyUser = (req, res, next) => {
 
     // Picture hasn't changed
   } else {
-    newObj = { ...req.body }; 
+    newObj = { ...req.body };
   }
 
   Sauce.findByIdAndUpdate(
@@ -119,6 +126,6 @@ exports.modifyUser = (req, res, next) => {
       }
     },
   );
-}
+};
 
 // get('/', auth, userCtrl.getMenuOptions);

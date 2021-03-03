@@ -1,7 +1,7 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
-const userCtrl = require("../controllers/user");
+const userCtrl = require('../controllers/user');
 
 // router.get('/', auth, userCtrl.getMenuOptions);
 // router.post('/signup', auth, userCtrl.signup);
@@ -9,7 +9,6 @@ const userCtrl = require("../controllers/user");
 // router.get('/:id', auth, userCtrl.getOneUser);
 // router.put('/:id', auth, userCtrl.modifyUser);
 
+router.post('/signup', userCtrl.signup);
+
 module.exports = router;
-
-
-

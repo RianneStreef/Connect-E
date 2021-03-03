@@ -1,5 +1,5 @@
-const Article = require("../models/article");
-const chalk = require("chalk");
+const Article = require('../models/article');
+const chalk = require('chalk');
 
 exports.createArticle = (req, res, next) => {
   const {
@@ -29,7 +29,7 @@ exports.createArticle = (req, res, next) => {
     .save()
     .then(() => {
       res.status(201).json({
-        message: "Article saved successfully!",
+        message: 'Article saved successfully!',
       });
     })
     .catch((error) => {
@@ -53,11 +53,11 @@ exports.getAllArticles = (req, res, next) => {
     });
 };
 
-exports.deleteArticle = (req, res, next) => { 
+exports.deleteArticle = (req, res, next) => {
   Sauce.deleteOne({ _id: req.params.id })
     .then(() => {
       res.status(200).json({
-        message: "Deleted!",
+        message: 'Deleted!',
       });
     })
     .catch((error) => {
@@ -65,33 +65,36 @@ exports.deleteArticle = (req, res, next) => {
         error,
       });
     });
-  };
-  
-const removeLike = (ID, usersLiked) => usersLiked.filter((likes) => likes !==ID);
-const removeDislike = (ID, usersLiked) => usersLiked.filter((likes) => likes !==ID);
+};
 
-  exports.likeArticle = (req, res, next) => {
-    const input = req.body.like;
-    const ID = req.body.userId;  
+const removeLike = (ID, usersLiked) =>
+  usersLiked.filter((likes) => likes !== ID);
+const removeDislike = (ID, usersLiked) =>
+  usersLiked.filter((likes) => likes !== ID);
 
-    Article.findOne(
-      {
-        _id: req.params.id, 
-      },
-      (err, articleFound) => {
-        if (err) {
+exports.likeArticle = (req, res, next) => {
+  const input = req.body.like;
+  const ID = req.body.userId;
+
+  console.log('LIKING ARTICLE');
+
+  Article.findOne(
+    {
+      _id: req.params.id,
+    },
+    (err, articleFound) => {
+      if (err) {
         // Error is found
         console.log(chalk.red.inverse('Error'), err);
-        }
-        else {
-           const { usersLiked, usersDisliked} = articleFound;
-           let { likes, dislikes } = articleFound;
+      } else {
+        const { usersLiked, usersDisliked } = articleFound;
+        let { likes, dislikes } = articleFound;
 
-           const alreadyLiked = usersLiked.includes(ID);
-           const alreadyDisliked = usersDisliked.includes(ID);
-         
-          if (input === 1) {
-            if (!alreadyLiked && !alreadyDisliked) {
+        const alreadyLiked = usersLiked.includes(ID);
+        const alreadyDisliked = usersDisliked.includes(ID);
+
+        if (input === 1) {
+          if (!alreadyLiked && !alreadyDisliked) {
             likes += 1;
             usersLiked.push(ID);
             articleFound.likes = likes;
@@ -99,54 +102,50 @@ const removeDislike = (ID, usersLiked) => usersLiked.filter((likes) => likes !==
             articleFound.save();
             res.status(201).json({
               message: 'Article successfully evaluated!',
-              });
-            }
+            });
           }
-      
-          if (input === -1) {
-            if (!alreadyLiked && !alreadyDisliked) {
-              dislikes += 1;
-              usersDisliked.push(ID);
-              articleFound.dislikes = dislikes;
-              articleFound.save();
-              res.status(201).json({
-                message: 'Article successfully evaluated!',
-              });
-            }
+        }
+
+        if (input === -1) {
+          if (!alreadyLiked && !alreadyDisliked) {
+            dislikes += 1;
+            usersDisliked.push(ID);
+            articleFound.dislikes = dislikes;
+            articleFound.save();
+            res.status(201).json({
+              message: 'Article successfully evaluated!',
+            });
           }
-          if (input === 0 ) {          
-            if (alreadyLiked) {
-              likes -= 1;            
-              const newUsersLiked = removeLike(ID, usersLiked);
-    
-              articleFound.likes = likes;
-              articleFound.usersLiked = newUsersLiked;
+        }
+        if (input === 0) {
+          if (alreadyLiked) {
+            likes -= 1;
+            const newUsersLiked = removeLike(ID, usersLiked);
 
-              articleFound.save();
+            articleFound.likes = likes;
+            articleFound.usersLiked = newUsersLiked;
 
-              res.status(201).json({
-                message: 'Like deleted!',
-              });
-            }
-              if (alreadyDisliked) {
-                dislikes -= 1;            
-                const newUsersDisliked = removeDislike(ID, usersDisliked);
-    
-                articleFound.dislikes = dislikes;
-                articleFound.usersDisliked = newUsersDisliked;
+            articleFound.save();
 
-                articleFound.save();
+            res.status(201).json({
+              message: 'Like deleted!',
+            });
+          }
+          if (alreadyDisliked) {
+            dislikes -= 1;
+            const newUsersDisliked = removeDislike(ID, usersDisliked);
 
-              res.status(201).json({
-                message: 'Dislike deleted!',
-              });
-            
-            }; 
+            articleFound.dislikes = dislikes;
+            articleFound.usersDisliked = newUsersDisliked;
+
+            articleFound.save();
+
+            res.status(201).json({
+              message: 'Dislike deleted!',
+            });
           }
         }
       }
-    )          
-}     
- 
-
-
+    },
+  );
+};

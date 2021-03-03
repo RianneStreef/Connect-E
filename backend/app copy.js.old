@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
 
-const cors = require('cors');
-
 const mysql = require('mysql');
 const chalk = require('chalk');
 const axios = require('axios').default;
@@ -13,20 +11,49 @@ const articleRoutes = require('./routes/article');
 const userRoutes = require('./routes/user');
 
 require('dotenv').config();
-
-app.use(cors({ origin: true, credentials: true }));
 /*
 connection.connect((err) => {
   if (err) throw err;
   console.log('Connected!');
 }); */
 
-const con = mysql.createConnection({
+const dbConfig = {
   host: 'remotemysql.com',
   user: process.env.DATABASE_USERNAME,
   password: process.env.DATABASE_PASSWORD,
   database: 'OXgD76ZhvJ',
-});
+};
+
+let connection;
+
+// https://stackoverflow.com/questions/20210522/nodejs-mysql-error-connection-lost-the-server-closed-the-connection
+function handleDisconnect() {
+  connection = mysql.createConnection(dbConfig); // Recreate the connection, since
+  // the old one cannot be reused.
+
+  connection.connect(function (err) {
+    // The server is either down
+    if (err) {
+      // or restarting (takes a while sometimes).
+      console.log('error when connecting to db:', err);
+      setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+    } // to avoid a hot loop, and to allow our node script to
+  }); // process asynchronous requests in the meantime.
+  // If you're also serving http, display a 503 error.
+  connection.on('error', function (err) {
+    console.log('db error', err);
+    if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+      console.log('CONNECTION LOST RECONNECTING');
+      // Connection to the MySQL server is usually
+      handleDisconnect(); // lost due to either server restart, or a
+    } else {
+      // connnection idle timeout (the wait_timeout
+      throw err; // server variable configures this)
+    }
+  });
+}
+
+handleDisconnect();
 
 // con.query("insert into articles (title, description, URL) values ('NextTitle','The next article', 'www.myArticle.com')", function (err, result) {
 //   if (err) throw err;
@@ -50,10 +77,11 @@ app.use(express.json());
 
 // app.use("/images", express.static(path.join(__dirname, "images")));
 
-app.use('/api/articles', articleRoutes);
-app.use('/api/auth', userRoutes);
+// app.use("/api/articles", articleRoutes);
+// app.use("/api/auth", userRoutes);
 
 app.get('/api/articles', (req, res, next) => {
+  console.clear();
   con.query(
     'SELECT * FROM articles ORDER BY id DESC LIMIT 10',
     function (err, result) {
@@ -83,14 +111,6 @@ app.delete('/api/articles', (req, res, next) => {
     });
   });
 });
-
-/* app.post('/api/articles/like', (req, res, next) => {
-  const { id } = req.body;
-  console.log('id');
-  return res.status(200).json({
-    message: `Article liked, id: ${id}`,
-  });
-}); */
 
 // need to get the id nr of the article when it is generated, so I can use it for delete, and maybe like
 
